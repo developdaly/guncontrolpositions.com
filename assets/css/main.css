@@ -3800,7 +3800,7 @@
 		display: -ms-flex;
 		display: flex;
 		border-bottom: solid 5px #f56a6a;
-		padding: 6em 0 1em 0;
+		padding: 2.4em 0 1em 0;
 		position: relative;
 	}
 
@@ -3826,7 +3826,7 @@
 		@media screen and (max-width: 1680px) {
 
 			#header {
-				padding-top: 5em;
+				padding-top: 1.8em;
 			}
 
 		}
@@ -3834,7 +3834,7 @@
 		@media screen and (max-width: 736px) {
 
 			#header {
-				padding-top: 6.5em;
+				padding-top: 5em;
 			}
 
 				#header .logo {
