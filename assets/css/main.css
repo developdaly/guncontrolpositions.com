@@ -4069,3 +4069,34 @@
 			margin-top: 0;
 			padding-top: 0;
 		}
+
+/* Fundraising */
+
+.fundraising {
+	background: #f9f9f9;
+	margin-bottom: 10px;
+	padding: 18px;
+}
+.fundraising-label {
+	text-transform: uppercase;
+}
+.source {
+	font-size: 11px;
+}
+.source a {
+	color: #7f888f;
+}
+
+/* NRA */
+
+.nra {
+	background: #f1f1f1;
+	padding: 18px;
+}
+.nra.endorsed {
+	background: #bd1300;
+	color: #fff;
+}
+.nra.endorsed a {
+	color: #fff;
+}
