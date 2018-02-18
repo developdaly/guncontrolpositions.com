@@ -3490,54 +3490,37 @@
 		width: 100%;
 	}
 
-		#main > .inner {
-			padding: 0 6em 0.1em 6em ;
+		#main .inner {
+			padding: 6em 6em 0.1em 6em ;
 			margin: 0 auto;
 			max-width: 110em;
 		}
 
-			#main > .inner > section {
-				padding: 6em 0 4em 0 ;
-				border-top: solid 2px rgba(210, 215, 217, 0.75);
-			}
-
-				#main > .inner > section:first-of-type {
+				#main .inner:first-of-type {
 					border-top: 0 !important;
 				}
 
 		@media screen and (max-width: 1680px) {
 
-			#main > .inner {
-				padding: 0 5em 0.1em 5em ;
+			#main .inner {
+				padding: 5em 5em 0.1em 5em ;
 			}
-
-				#main > .inner > section {
-					padding: 5em 0 3em 0 ;
-				}
 
 		}
 
 		@media screen and (max-width: 1280px) {
 
-			#main > .inner {
-				padding: 0 4em 0.1em 4em ;
+			#main .inner {
+				padding: 4em 4em 0.1em 4em ;
 			}
-
-				#main > .inner > section {
-					padding: 4em 0 2em 0 ;
-				}
 
 		}
 
 		@media screen and (max-width: 736px) {
 
-			#main > .inner {
-				padding: 0 2em 0.1em 2em ;
+			#main .inner {
+				padding: 2em 2em 0.1em 2em ;
 			}
-
-				#main > .inner > section {
-					padding: 3em 0 1em 0 ;
-				}
 
 		}
 
@@ -4069,3 +4052,46 @@
 			margin-top: 0;
 			padding-top: 0;
 		}
+
+/* Fundraising */
+
+.fundraising {
+	background: #f9f9f9;
+	margin-bottom: 10px;
+	padding: 18px;
+}
+.fundraising-label {
+	text-transform: uppercase;
+}
+.source {
+	font-size: 11px;
+}
+.source a {
+	color: #7f888f;
+}
+
+/* NRA */
+
+.nra {
+	background: #f1f1f1;
+	padding: 18px;
+}
+.nra.endorsed {
+	background: #bd1300;
+	color: #fff;
+}
+.nra.endorsed a {
+	color: #fff;
+}
+
+/* Sections */
+
+#governor {
+	background: #fff1f1;
+}
+#senators {
+	background: #f5f6f7;
+}
+#representatives {
+	background: #eef7ff;
+}

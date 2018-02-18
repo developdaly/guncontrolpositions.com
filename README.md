@@ -5,3 +5,5 @@ The purpose of this site is to share the positions that politicians in the Dalla
 ## Contributing
 
 All contributions are welcome. There are lots of politicians and lots of statements; it'll take a community to keep this fresh.
+
+[Idea board](https://github.com/developdaly/guncontrolpositions.com/projects/1)
