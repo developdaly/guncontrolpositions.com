@@ -231,6 +231,14 @@
 						]}
 					]},
 
+					// NRA
+					{'<>':'div','class':function(){if( this.gsx$nraendorsed.$t === "TRUE" ) { return 'nra endorsed' } else { return 'hide' }},'html':[
+						{'<>':'div','class':'nra-endorsement','text':'Endorsed by the NRA'},
+						{'<>':'div','class':'source','html':[
+							{'<>':'a','target':'_blank','href':'https://www.nrapvf.org/grades/'},
+						]}
+					]},
+
 					// Position
 					{'<>':'div','class':'position','html':'${gsx$position.$t}'},
 					{'<>':'div','class':'source','html':[
