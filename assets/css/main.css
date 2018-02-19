@@ -4053,6 +4053,10 @@
 			padding-top: 0;
 		}
 
+.hide {
+	display: none;
+}
+
 /* Fundraising */
 
 .fundraising {
@@ -4089,9 +4093,24 @@
 #governor {
 	background: #fff1f1;
 }
-#senators {
+#us_senators {
 	background: #f5f6f7;
 }
-#representatives {
+#us_representatives {
 	background: #eef7ff;
+}
+
+/* States */
+#states {
+	list-style: none;
+	margin: 0 0 20px;
+	padding: 0;
+}
+#states li {
+	display: inline-block;
+}
+#states li a {
+	background: #f9f9f9;
+	border: 1px solid #f1f1f1;
+	padding: 6px;
 }
