@@ -50,154 +50,154 @@
 
 		function get_state_id(state) {
 			switch (state) {
-				case 'alabama':
+				case '#alabama':
 					state_id = 1;
 					break;
-				case 'alaska':
+				case '#alaska':
 					state_id = 2;
 					break;
-				case 'arizona':
+				case '#arizona':
 					state_id = 3;
 					break;
-				case 'arkansas':
+				case '#arkansas':
 					state_id = 4;
 					break;
-				case 'california':
+				case '#california':
 					state_id = 5;
 					break;
-				case 'colorado':
+				case '#colorado':
 					state_id = 6;
 					break;
-				case 'connecticut':
+				case '#connecticut':
 					state_id = 7;
 					break;
-				case 'delaware':
+				case '#delaware':
 					state_id = 8;
 					break;
-				case 'florida':
+				case '#florida':
 					state_id = 9;
 					break;
-				case 'georgia':
+				case '#georgia':
 					state_id = 10;
 					break;
-				case 'hawaii':
+				case '#hawaii':
 					state_id = 11;
 					break;
-				case 'idaho':
+				case '#idaho':
 					state_id = 12;
 					break;
-				case 'illinois':
+				case '#illinois':
 					state_id = 13;
 					break;
-				case 'indiana':
+				case '#indiana':
 					state_id = 14;
 					break;
-				case 'iowa':
+				case '#iowa':
 					state_id = 15;
 					break;
-				case 'kansas':
+				case '#kansas':
 					state_id = 16;
 					break;
-				case 'kentucky':
+				case '#kentucky':
 					state_id = 17;
 					break;
-				case 'louisiana':
+				case '#louisiana':
 					state_id = 18;
 					break;
-				case 'maine':
+				case '#maine':
 					state_id = 19;
 					break;
-				case 'maryland':
+				case '#maryland':
 					state_id = 20;
 					break;
-				case 'massachusetts':
+				case '#massachusetts':
 					state_id = 21;
 					break;
-				case 'michigan':
+				case '#michigan':
 					state_id = 22;
 					break;
-				case 'minnesota':
+				case '#minnesota':
 					state_id = 23;
 					break;
-				case 'mississippi':
+				case '#mississippi':
 					state_id = 24;
 					break;
-				case 'missouri':
+				case '#missouri':
 					state_id = 25;
 					break;
-				case 'montana':
+				case '#montana':
 					state_id = 26;
 					break;
-				case 'nebraska':
+				case '#nebraska':
 					state_id = 27;
 					break;
-				case 'nevada':
+				case '#nevada':
 					state_id = 28;
 					break;
-				case 'new-hampshire':
+				case '#new-hampshire':
 					state_id = 29;   
 					break;
-				case 'new-jersey':
+				case '#new-jersey':
 					state_id = 30;
 					break;
-				case 'new-mexico':
+				case '#new-mexico':
 					state_id = 31;
 					break;
-				case 'new-york':
+				case '#new-york':
 					state_id = 32;
 					break;
-				case 'north-carolina':
+				case '#north-carolina':
 					state_id = 33;
 					break;
-				case 'north-dakota':
+				case '#north-dakota':
 					state_id = 34;
 					break;
-				case 'ohio':
+				case '#ohio':
 					state_id = 35;
 					break;
-				case 'oklahoma':
+				case '#oklahoma':
 					state_id = 36;
 					break;
-				case 'oregon':
+				case '#oregon':
 					state_id = 37;
 					break;
-				case 'pennsylvania':
+				case '#pennsylvania':
 					state_id = 38;
 					break;
-				case 'rhode-island':
+				case '#rhode-island':
 					state_id = 39;
 					break;
-				case 'south-carolina':
+				case '#south-carolina':
 					state_id = 40;
 					break;
-				case 'south-dakota':
+				case '#south-dakota':
 					state_id = 41;
 					break;
-				case 'tennessee':
+				case '#tennessee':
 					state_id = 42;
 					break;
-				case 'texas':
+				case '#texas':
 					state_id = 43;
 					break;
-				case 'utah':
+				case '#utah':
 					state_id = 44;
 					break;
-				case 'vermont':
+				case '#vermont':
 					state_id = 45;
 					break;
-				case 'virginia':
+				case '#virginia':
 					state_id = 46;
 					break;
-				case 'washington':
+				case '#washington':
 					state_id = 47;
 					break;
-				case 'west-virginia':
+				case '#west-virginia':
 					state_id = 48;
 					break;
-				case 'wisconsin':
+				case '#wisconsin':
 					state_id = 49;
 					break;
-				case 'wyoming':
+				case '#wyoming':
 					state_id = 50;
 					break;
 			}
@@ -272,16 +272,15 @@
 		}
 
 		$window.on('load', function() {
-			state = window.location.hash
+			state = window.location.hash;
 			state_id = get_state_id(state);
 			get_data(state_id);
 		});
 
 		$(window).on('hashchange', function() {
-			state = window.location.hash
+			state = window.location.hash;
 			state_id = get_state_id(state);
 			get_data(state_id);
-
 		});
 
 		$('#states a').click(function() {
