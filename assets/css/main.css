@@ -4057,47 +4057,15 @@
 	display: none;
 }
 
-/* Fundraising */
-
-.fundraising {
-	background: #f9f9f9;
-	margin-bottom: 10px;
-	padding: 18px;
-}
-.fundraising-label {
-	text-transform: uppercase;
-}
-.source {
-	font-size: 11px;
-}
-.source a {
-	color: #7f888f;
-}
-
-/* NRA */
-
-.nra {
-	background: #f1f1f1;
-	padding: 18px;
-}
-.nra.endorsed {
-	background: #bd1300;
-	color: #fff;
-}
-.nra.endorsed a {
-	color: #fff;
-}
 
 /* Sections */
 
-#governor {
-	background: #fff1f1;
-}
-#us_senators {
-	background: #f5f6f7;
-}
+#governor,
+#us_senators,
 #us_representatives {
-	background: #eef7ff;
+	border-bottom: 10px solid rgba(130,130,130,1);
+	margin-bottom: 7em;
+	padding-bottom: 7em;
 }
 
 /* States */
@@ -4114,4 +4082,53 @@
 	border: 1px solid #f1f1f1;
 	line-height: 48px;
 	padding: 6px;
+}
+
+.posts article {
+	padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 25px 0 rgba(130,130,130, 0.1);
+    border: 1px solid rgba(130,130,130, 0.2);
+}
+.posts article .name {
+	font-size: 1em;
+	margin-bottom: 0;
+}
+.posts article .party {
+	color: rgba(130,130,130,1);
+	font-size: .9em;
+	margin-bottom: 0;
+}
+.posts article .seated-or-candidate {
+	color: rgba(130,130,130,1);
+	font-size: .8em;
+	margin-bottom: .7em;
+}
+.posts article .seated-or-candidate.Candidate {
+	color: rgb(35, 135, 202);
+}
+
+/* Fundraising */
+
+.posts article  .fundraising .amount {
+	color: rgba(111, 206, 120,1);
+	font-size: .8em;
+	font-weight: bold;
+}
+
+.source {
+	font-size: 11px;
+}
+.source a {
+	color: #7f888f;
+}
+
+.nra.endorsed {
+    color: #c10303;
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: .8em;
+    border-bottom: 1px solid rgba(193, 3, 3, .2);
+    border-top: 1px solid rgba(193, 3, 3, .2);
+    padding: .5em 0;
 }

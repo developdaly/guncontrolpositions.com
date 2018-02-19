@@ -211,21 +211,20 @@
 				{'<>':'div','class':function(){seatedorcandidate = this.gsx$seatedorcandidate.$t; return seatedorcandidate.toLowerCase();},'html':[
 
 					// Name
-					{'<>':'h3','html': '${gsx$name.$t}'},
+					{'<>':'h3','class':'name','html': '${gsx$name.$t}'},
 
 					// District
-					{'<>':'h4','html':function(){if( ( this.gsx$housedistrict.$t  !== "" ) || ( this.gsx$housedistrict.$t === "Unknown" ) ) return 'District '+ this.gsx$housedistrict.$t;},},
+					{'<>':'h4','class':function(){if( ( this.gsx$housedistrict.$t  !== "" ) || ( this.gsx$housedistrict.$t === "Unknown" ) ) { return 'district' } else { return 'hide' }},'html':function(){if( ( this.gsx$housedistrict.$t  !== "" ) || ( this.gsx$housedistrict.$t === "Unknown" ) ) { return 'District '+ this.gsx$housedistrict.$t;}} ,},
 					
 					// Party
-					{'<>':'h4','html':'${gsx$party.$t}' + ' - ' + '${gsx$partyabbr.$t}'},
+					{'<>':'h4','class':'party','html':'${gsx$party.$t}' + ' - ' + '${gsx$partyabbr.$t}'},
 
 					// Seated or Candidate
-					{'<>':'p','html':'${gsx$seatedorcandidate.$t}'},
+					{'<>':'div','class':'seated-or-candidate ${gsx$seatedorcandidate.$t}','html':'${gsx$seatedorcandidate.$t}'},
 
 					// Fundraising
 					{'<>':'div','class':function(){if( ( this.gsx$fundraisingamount.$t === "" ) || ( this.gsx$fundraisingamount.$t === "Unknown" ) ) { return 'hide' } else { return 'fundraising' }},'html':[
-						{'<>':'div','class':'fundraising-amount','text':'${gsx$fundraisingamount.$t}'},
-						{'<>':'div','class':'fundraising-label','text':'Raised as of ${gsx$fundraisingamountasofdate.$t}'},
+						{'<>':'div','class':'amount','text':'${gsx$fundraisingamount.$t} raised as of ${gsx$fundraisingamountasofdate.$t}'},
 						{'<>':'div','class':'source','html':[
 							{'<>':'a','target':'_blank','href':'${gsx$fundraisingsource.$t}','text':'${gsx$fundraisingsourcelabel.$t}'},
 						]}
