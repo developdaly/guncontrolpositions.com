@@ -211,13 +211,12 @@
 				{'<>':'div','class':function(){seatedorcandidate = this.gsx$seatedorcandidate.$t; return seatedorcandidate.toLowerCase();},'html':[
 
 					// Name
-					{'<>':'h3','class':'name','html': '${gsx$name.$t}'},
+					{'<>':'h3','class':'name','text': '${gsx$name.$t} - ','html':[
+						{'<>':'abbr','class':'party','title':'${gsx$party.$t}','text':'${gsx$partyabbr.$t}'}
+					]},
 
 					// District
 					{'<>':'h4','class':function(){if( ( this.gsx$housedistrict.$t  !== "" ) || ( this.gsx$housedistrict.$t === "Unknown" ) ) { return 'district' } else { return 'hide' }},'html':function(){if( ( this.gsx$housedistrict.$t  !== "" ) || ( this.gsx$housedistrict.$t === "Unknown" ) ) { return 'District '+ this.gsx$housedistrict.$t;}} ,},
-					
-					// Party
-					{'<>':'h4','class':'party','html':'${gsx$party.$t}' + ' - ' + '${gsx$partyabbr.$t}'},
 
 					// Seated or Candidate
 					{'<>':'div','class':'seated-or-candidate ${gsx$seatedorcandidate.$t}','html':'${gsx$seatedorcandidate.$t}'},
