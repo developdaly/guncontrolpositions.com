@@ -226,7 +226,7 @@
 						{'<>':'span','class':'amount','text':'Amount Raised: ' },
 						{'<>':'span','html':function(){ var n = parseFloat(this.gsx$total.$t); return '$'+n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') },'class':'amount' },
 						{'<>':'span','class':'source','html':[
-							{'<>':'a','target':'_blank','href':'opensecrets.org','text':' via Open Secrets'},
+							{'<>':'a','target':'_blank','href':'https://www.opensecrets.org','text':' via Open Secrets'},
 						]}
 					]},
 
