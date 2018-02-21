@@ -222,10 +222,11 @@
 					{'<>':'div','class':'seated-or-candidate ${gsx$seatedorcandidate.$t}','html':'${gsx$seatedorcandidate.$t}'},
 
 					// Fundraising
-					{'<>':'div','class':function(){if( ( this.gsx$fundraisingamount.$t === "" ) || ( this.gsx$fundraisingamount.$t === "Unknown" ) ) { return 'hide' } else { return 'fundraising' }},'html':[
-						{'<>':'div','class':'amount','text':'${gsx$fundraisingamount.$t} raised as of ${gsx$fundraisingamountasofdate.$t}'},
-						{'<>':'div','class':'source','html':[
-							{'<>':'a','target':'_blank','href':'${gsx$fundraisingsource.$t}','text':'${gsx$fundraisingsourcelabel.$t}'},
+					{'<>':'div','class':function(){if( ( this.gsx$total.$t === "" ) || ( this.gsx$total.$t === "Unknown" ) ) { return 'hide' } else { return 'fundraising' }},'html':[
+						{'<>':'span','class':'amount','text':'Amount Raised: ' },
+						{'<>':'span','html':function(){ var n = parseFloat(this.gsx$total.$t); return '$'+n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') },'class':'amount' },
+						{'<>':'span','class':'source','html':[
+							{'<>':'a','target':'_blank','href':'opensecrets.org','text':' via Open Secrets'},
 						]}
 					]},
 
