@@ -1,0 +1,8 @@
+{
+  "short_name": "Gun Control",
+  "name": "Gun Control Positions",
+  "start_url": "index.html",
+  "background_color": "#f56a6a",
+  "display": "browser",
+  "theme_color": "#f56a6a"
+}
