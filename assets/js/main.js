@@ -249,33 +249,60 @@
 			]};
 
 		function get_data(state_id) {
-			if( isInt(state_id)) {
-				hitApi('https://spreadsheets.google.com/feeds/list/1fLGuUuYjk94p31hbpKFfQuhUsrz1rCpQgQ6z2VaA3RY/'+ state_id +'/public/values?alt=json', function(error, data) {
-					if (error) {
-						console.log('there was an error', error);
-					} else {
-						var governors = [];
-						var us_seantors = [];
-						var us_representatives = [];
-
-						$.each(data.feed.entry, function() {
-							if (this.gsx$role.$t == "Governor") {
-								governors.push(this);
-							}
-							if (this.gsx$role.$t == "U.S. Senator") {
-								us_seantors.push(this);
-							}
-							if (this.gsx$role.$t == "U.S. House Representative") {
-								us_representatives.push(this);
-							}
-						});
-						
-						$('#governor .posts').empty().json2html(governors,person,[{"replace":true}]);
-						$('#us_senators .posts').empty().json2html(us_seantors,person);
-						$('#us_representatives .posts').empty().json2html(us_representatives,person);
-					}
-				});
+			if( ! isInt(state_id)) return;
+			if( localStorage.getItem(state_id) ) {
+				var local = JSON.parse(localStorage.getItem(state_id)),
+					storedDate = local.timestamp,
+					twentyfourHoursAgo = JSON.stringify(new Date(new Date().getTime() - (24 * 60 * 60 * 1000)));
+				if( JSON.stringify(storedDate) < JSON.stringify(twentyfourHoursAgo) ) {
+					render_data(local);
+				} else {
+					call_data(state_id);
+				}
+			} else {
+				call_data(state_id);
 			}
+		}
+
+		function call_data(state_id){
+			var data = hitApi('https://spreadsheets.google.com/feeds/list/1fLGuUuYjk94p31hbpKFfQuhUsrz1rCpQgQ6z2VaA3RY/'+ state_id +'/public/values?alt=json', function(error, data) {
+				var timestamp = new Date(new Date().getTime());
+				data.timestamp = timestamp;
+				localStorage.setItem(state_id, JSON.stringify(data));
+				if (error) {
+					console.log('there was an error', error);
+				} else {
+					render_data(data);
+				}
+			});
+		}
+
+		function render_data(data){
+			var governors = [];
+			var us_seantors = [];
+			var us_representatives = [];
+
+			if( ! data.feed.entry ) {
+				$('#governor .posts').empty();
+				$('#us_senators .posts').empty();
+				$('#us_representatives .posts').empty();
+			}
+
+			$.each(data.feed.entry, function() {
+				if (this.gsx$role.$t == "Governor") {
+					governors.push(this);
+				}
+				if (this.gsx$role.$t == "U.S. Senator") {
+					us_seantors.push(this);
+				}
+				if (this.gsx$role.$t == "U.S. House Representative") {
+					us_representatives.push(this);
+				}
+			});
+			
+			$('#governor .posts').empty().json2html(governors,person,[{"replace":true}]);
+			$('#us_senators .posts').empty().json2html(us_seantors,person);
+			$('#us_representatives .posts').empty().json2html(us_representatives,person);
 		}
 
 		$window.on('load', function() {
