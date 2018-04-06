@@ -337,8 +337,17 @@
 			$('#us_representatives .posts').empty().json2html(us_representatives,person);
 		}
 
-		$window.on('load', function() {
-			state = window.location.hash;
+		$window.on('load', async function() {
+			if (!window.location.hash && !localStorage.state) {
+				const response = await fetch('https://ipinfo.io/geo');
+				const json = await response.json();
+				if(json.country === 'US') {
+					state = window.location.hash = `#${json.region.toLowerCase().replace(/\s/, '-')}`
+					localStorage.setItem('state', state);
+				}
+			}	else if (!window.location.hash && localStorage.state) {
+				state =	window.location.hash = localStorage.state;
+			}
 			state_id = get_state_id(state);
 			get_data(state_id);
 		});
