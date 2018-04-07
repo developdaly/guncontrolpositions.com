@@ -345,23 +345,28 @@
 					state = window.location.hash = `#${json.region.toLowerCase().replace(/\s/, '-')}`
 					localStorage.setItem('state', state);
 				}
-			}	else if (!window.location.hash && localStorage.state) {
+			} else if (!window.location.hash && localStorage.state) {
 				state =	window.location.hash = localStorage.state;
 			}
 			state_id = get_state_id(state);
 			get_data(state_id);
+
+			set_active_state_label();
 		});
 
 		$(window).on('hashchange', function() {
 			state = window.location.hash;
 			state_id = get_state_id(state);
 			get_data(state_id);
+			set_active_state_label();
 		});
 
-		$('#states a').click(function() {
-			var text = $(this).text();
-			$('#state').text(text);
-		});
+		function set_active_state_label() {
+			$('#states a').removeClass('active');
+			$('#states a[href="'+  window.location.hash +'"]').addClass('active');
+			var active_state_label = $('#states a.active').text();
+			$('.selected-state').text(active_state_label);
+		}
 
 		function isInt(value) {
 			return !isNaN(value) && 
