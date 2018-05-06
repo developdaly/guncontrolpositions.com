@@ -3,7 +3,7 @@
   "name": "Gun Control Positions",
   "start_url": ".",
   "background_color": "#f56a6a",
-  "display": "minimal-ui",
+  "display": "standalone",
   "theme_color": "#f56a6a",
   "icons": [
     {
