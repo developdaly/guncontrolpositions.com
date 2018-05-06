@@ -1,7 +1,7 @@
 {
   "short_name": "Gun Control",
   "name": "Gun Control Positions",
-  "start_url": "index.html",
+  "start_url": ".",
   "background_color": "#f56a6a",
   "display": "minimal-ui",
   "theme_color": "#f56a6a",
