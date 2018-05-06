@@ -17,7 +17,59 @@
 	});
 
 	CountDownTimer('11/6/2018 7:00 AM', 'countdown');
-							
+
+	var jsonp = function(url)
+	{
+		var script = window.document.createElement('script');
+		script.async = true;
+		script.src = url;
+		script.onerror = function()
+		{
+			alert('Can not access JSONP file.')
+		};
+		var done = false;
+		script.onload = script.onreadystatechange = function()
+		{
+			if (!done && (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete'))
+			{
+				done = true;
+				script.onload = script.onreadystatechange = null;
+				if (script.parentNode)
+				{
+					return script.parentNode.removeChild(script);
+				}
+			}
+		};
+		window.document.getElementsByTagName('head')[0].appendChild(script);
+	};
+	
+	var query = function(sql, callback)
+	{
+		var url = 'http://spreadsheets.google.com/a/google.com/tq?',
+			params = {
+				key: '1mQJuR6Tjzp6-G-XZEth_5GxiV69jEKzlPxuuEzNK91k',
+				tq: encodeURIComponent(sql),
+				tqx: 'responseHandler:' + callback
+			},
+			qs = [];
+		for (var key in params)
+		{
+			qs.push(key + '=' + params[key]);
+		}
+		url += qs.join('&');
+		return jsonp(url); // Call JSONP helper function
+	}
+	
+	var my_callback = function(data)
+	{
+		data = parse(data); // Call data parser helper function
+	
+		// Do whatever you want with the data.
+		console.log(data);
+	}
+	
+	query('select state limit 20', 'my_callback');
+
 	function CountDownTimer(dt, id){
 		var end = new Date(dt);
 
