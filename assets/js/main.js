@@ -6,6 +6,12 @@
 
 (function($) {
 
+	if ('serviceWorker' in navigator) {
+		window.addEventListener('load', function() {
+		  navigator.serviceWorker.register('/assets/js/service-worker.js');
+		});
+	  }
+
 	skel.breakpoints({
 		xlarge: '(max-width: 1680px)',
 		large: '(max-width: 1280px)',
