@@ -22,7 +22,7 @@
 		'small-to-xlarge': '(min-width: 481px) and (max-width: 1680px)'
 	});
 
-	CountDownTimer('11/6/2018 7:00 AM', 'countdown');
+	CountDownTimer('11/8/2022 7:00 AM', 'countdown');
 							
 	function CountDownTimer(dt, id){
 		var end = new Date(dt);
