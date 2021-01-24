@@ -2113,10 +2113,12 @@
 
 		a:hover {
 			border-bottom-color: #f56a6a;
-			color: #f56a6a !important;
+			background-color: #f56a6a !important;
+			color: #fff;
 		}
 
 			a:hover strong {
+				background-color: inherit;
 				color: inherit;
 			}
 
@@ -4087,6 +4089,8 @@
 	background: #f56a6a;
 	color: #fff;
 }
+
+
 .posts article {
 	padding: 20px;
     background: #fff;
