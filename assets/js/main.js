@@ -341,6 +341,7 @@
 		}
 		
 		function render_position(position,person_id){
+			if( position.fields.Status !== 'Approved' ) { return; }
 			if( person_id = position.fields['US Legislators']['0']){
 				$('#person-'+ person_id +' .positions').empty().json2html(position,airtable_positions);
 			}
