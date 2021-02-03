@@ -84,288 +84,267 @@
 			$head = $('head'),
 			$body = $('body');
 			state = window.location.hash,
-			state_id = '';
+			state_id = null;
 
 		function get_state_id(state) {
 			switch (state) {
 				case '#alabama':
-					state_id = 1;
+					state_id = 'al';
 					break;
 				case '#alaska':
-					state_id = 2;
+					state_id = 'ak';
 					break;
 				case '#arizona':
-					state_id = 3;
+					state_id = 'az';
 					break;
 				case '#arkansas':
-					state_id = 4;
+					state_id = 'ar';
 					break;
 				case '#california':
-					state_id = 5;
+					state_id = 'ca';
 					break;
 				case '#colorado':
-					state_id = 6;
+					state_id = 'co';
 					break;
 				case '#connecticut':
-					state_id = 7;
+					state_id = 'ct';
 					break;
 				case '#delaware':
-					state_id = 8;
+					state_id = 'de';
 					break;
 				case '#florida':
-					state_id = 9;
+					state_id = 'fl';
 					break;
 				case '#georgia':
-					state_id = 10;
+					state_id = 'ga';
 					break;
 				case '#hawaii':
-					state_id = 11;
+					state_id = 'hi';
 					break;
 				case '#idaho':
-					state_id = 12;
+					state_id = 'id';
 					break;
 				case '#illinois':
-					state_id = 13;
+					state_id = 'il';
 					break;
 				case '#indiana':
-					state_id = 14;
+					state_id = 'in';
 					break;
 				case '#iowa':
-					state_id = 15;
+					state_id = 'ia';
 					break;
 				case '#kansas':
-					state_id = 16;
+					state_id = 'ks';
 					break;
 				case '#kentucky':
-					state_id = 17;
+					state_id = 'ky';
 					break;
 				case '#louisiana':
-					state_id = 18;
+					state_id = 'la';
 					break;
 				case '#maine':
-					state_id = 19;
+					state_id = 'me';
 					break;
 				case '#maryland':
-					state_id = 20;
+					state_id = 'my';
 					break;
 				case '#massachusetts':
-					state_id = 21;
+					state_id = 'ma';
 					break;
 				case '#michigan':
-					state_id = 22;
+					state_id = 'mi';
 					break;
 				case '#minnesota':
-					state_id = 23;
+					state_id = 'mn';
 					break;
 				case '#mississippi':
-					state_id = 24;
+					state_id = 'ms';
 					break;
 				case '#missouri':
-					state_id = 25;
+					state_id = 'mo';
 					break;
 				case '#montana':
-					state_id = 26;
+					state_id = 'mt';
 					break;
 				case '#nebraska':
-					state_id = 27;
+					state_id = 'ne';
 					break;
 				case '#nevada':
-					state_id = 28;
+					state_id = 'nv';
 					break;
 				case '#new-hampshire':
-					state_id = 29;   
+					state_id = 'nh';   
 					break;
 				case '#new-jersey':
-					state_id = 30;
+					state_id = 'nj';
 					break;
 				case '#new-mexico':
-					state_id = 31;
+					state_id = 'nm';
 					break;
 				case '#new-york':
-					state_id = 32;
+					state_id = 'ny';
 					break;
 				case '#north-carolina':
-					state_id = 33;
+					state_id = 'nc';
 					break;
 				case '#north-dakota':
-					state_id = 34;
+					state_id = 'nd';
 					break;
 				case '#ohio':
-					state_id = 35;
+					state_id = 'oh';
 					break;
 				case '#oklahoma':
-					state_id = 36;
+					state_id = 'ok';
 					break;
 				case '#oregon':
-					state_id = 37;
+					state_id = 'or';
 					break;
 				case '#pennsylvania':
-					state_id = 38;
+					state_id = 'pa';
 					break;
 				case '#rhode-island':
-					state_id = 39;
+					state_id = 'ri';
 					break;
 				case '#south-carolina':
-					state_id = 40;
+					state_id = 'sc';
 					break;
 				case '#south-dakota':
-					state_id = 41;
+					state_id = 'sd';
 					break;
 				case '#tennessee':
-					state_id = 42;
+					state_id = 'tn';
 					break;
 				case '#texas':
-					state_id = 43;
+					state_id = 'tx';
 					break;
 				case '#utah':
-					state_id = 44;
+					state_id = 'ut';
 					break;
 				case '#vermont':
-					state_id = 45;
+					state_id = 'vt';
 					break;
 				case '#virginia':
-					state_id = 46;
+					state_id = 'va';
 					break;
 				case '#washington':
-					state_id = 47;
+					state_id = 'wa';
 					break;
 				case '#west-virginia':
-					state_id = 48;
+					state_id = 'wv';
 					break;
 				case '#wisconsin':
-					state_id = 49;
+					state_id = 'wi';
 					break;
 				case '#wyoming':
-					state_id = 50;
+					state_id = 'wy';
 					break;
 			}
 			return state_id;
 		}
 
-		var person = 
-			
-			{'<>':'article','html':[
+		var airtable_person = 
 
-				{'<>':'div','class':function(){seatedorcandidate = this.gsx$seatedorcandidate.$t; return seatedorcandidate.toLowerCase();},'html':[
+			{'<>':'article','id':'person-${id}','html':[
+			
+				{'<>':'div','class':'seated','html':[
 
 					// Name
-					{'<>':'h3','class':'name','text': '${gsx$name.$t} - ','html':[
-						{'<>':'abbr','class':'party','title':'${gsx$party.$t}','text':'${gsx$partyabbr.$t}'}
+					{'<>':'h3','class':'name','text':'${fields.full_name} - ','html':[
+						{'<>':'abbr','class':'party','title':'${fields.party}','text':'${fields.party}'}
 					]},
 
 					// District
-					{'<>':'h4','class':function(){if( ( this.gsx$housedistrict.$t  !== "" ) || ( this.gsx$housedistrict.$t === "Unknown" ) ) { return 'district' } else { return 'hide' }},'html':function(){if( ( this.gsx$housedistrict.$t  !== "" ) || ( this.gsx$housedistrict.$t === "Unknown" ) ) { return 'District '+ this.gsx$housedistrict.$t;}} ,},
+					{'<>':'h4','class':function(){if( ( this.fields.district  !== "" ) || ( this.fields.district === "Unknown" ) ) { return 'district' } else { return 'hide' }},'html':function(){if( this.fields.district !== undefined ) { return 'District '+ this.fields.district;}} ,},
 
 					// Seated or Candidate
-					{'<>':'div','class':'seated-or-candidate ${gsx$seatedorcandidate.$t}','html':'${gsx$seatedorcandidate.$t}'},
-
-					// Fundraising
-					{'<>':'div','class':function(){if( ( this.gsx$total.$t === "" ) || ( this.gsx$total.$t === "Unknown" ) ) { return 'hide' } else { return 'fundraising' }},'html':[
-						{'<>':'span','class':'amount','text':'Amount Raised: ' },
-						{'<>':'span','html':function(){ var n = parseFloat(this.gsx$total.$t); return '$'+n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') },'class':'amount' },
-						{'<>':'span','class':'source','html':[
-							{'<>':'a','target':'_blank','href':'https://www.opensecrets.org','text':' via Open Secrets'},
-						]}
-					]},
-
-					// NRA
-					{'<>':'div','class':function(){if( this.gsx$nraendorsed.$t === "TRUE" ) { return 'nra endorsed' } else { return 'hide' }},'html':[
-						{'<>':'div','class':'nra-endorsement','text':'Endorsed by the NRA'},
-						{'<>':'div','class':'source','html':[
-							{'<>':'a','target':'_blank','href':'https://www.nrapvf.org/grades/'},
-						]}
-					]},
+					{'<>':'div','class':'seated-or-candidate seated','html':'Seated'},
 
 					// Position
-					{'<>':'div','class':'position','html':'${gsx$position.$t}'},
-					{'<>':'div','class':'source','html':[
-						{'<>':'a','target':'_blank','href':'${gsx$positionsource.$t}','text':'${gsx$positionsourcelabel.$t}'},
-					]}
-					
+					{'<>':'div','class':'positions'},
 
 				]}
+			
 			]};
 
-		function get_data(state_id) {
-			if( ! isInt(state_id)) return;
-			if( localStorage.getItem(state_id) ) {
-				var local = JSON.parse(localStorage.getItem(state_id)),
-					storedDate = local.timestamp,
-					twentyfourHoursAgo = JSON.stringify(new Date(new Date().getTime() - (24 * 60 * 60 * 1000)));
-				if( JSON.stringify(storedDate) < JSON.stringify(twentyfourHoursAgo) ) {
-					render_data(local);
-				} else {
-					call_data(state_id);
-				}
-			} else {
-				call_data(state_id);
-			}
-		}
+		var airtable_positions = 
 
-		function call_data(state_id){
-			var data = hitApi('https://spreadsheets.google.com/feeds/list/1fLGuUuYjk94p31hbpKFfQuhUsrz1rCpQgQ6z2VaA3RY/'+ state_id +'/public/values?alt=json', function(error, data) {
-				var timestamp = new Date(new Date().getTime());
-				data.timestamp = timestamp;
-				localStorage.setItem(state_id, JSON.stringify(data));
-				if (error) {
-					console.log('there was an error', error);
-				} else {
-					render_data(data);
-				}
+			{'<>':'ul','class':'positions','html':[
+
+				{'<>':'li','class':'position','text':'${fields.Quote}'}
+
+			]};
+
+		function get_people_by_state(state_abbr){
+			state_abbr = state_abbr.toUpperCase();
+			var Airtable = require('airtable');
+			var base = new Airtable({apiKey: 'keymZqTCLLLGgEcUW'}).base('appnnYim9SMBtDlnT');
+			base('US Legislators').select({
+				maxRecords: 1000,
+				view: "Grid view",
+				filterByFormula: "state = '"+ state_abbr +"'"
+			}).eachPage(function page(people, fetchNextPage) {
+				// This function (`page`) will get called for each page of records.
+
+				render_people(people);
+
+				people.forEach(function(person) {
+					positions = person.fields.positions;
+					if(positions) {
+						positions.forEach(function(position_id) {
+							base('Positions').find(position_id, function(err, position) {
+								if (err) { console.error(err); return; }
+								render_position(position,person.id);
+							});
+						});
+					}
+				});
+		
+				// To fetch the next page of records, call `fetchNextPage`.
+				// If there are more records, `page` will get called again.
+				// If there are no more records, `done` will get called.
+				fetchNextPage();
+		
+			}, function done(err) {
+				if (err) { console.error(err); return; }
 			});
 		}
-
-		function render_data(data){
-			var governors = [];
-			var us_seantors = [];
+		
+		function get_position_by_id(position_id){
+			var Airtable = require('airtable');
+			var base = new Airtable({apiKey: 'keymZqTCLLLGgEcUW'}).base('appnnYim9SMBtDlnT');
+			base('Positions').find(position_id, function(err, record) {
+				if (err) { console.error(err); return; }
+				return record;
+			});
+		}
+		
+		function render_people(data){
+			var us_senators = [];
 			var us_representatives = [];
-
-			if( ! data.feed.entry ) {
-				$('#governor .posts').empty();
+		
+			if( ! data.fields ) {
 				$('#us_senators .posts').empty();
 				$('#us_representatives .posts').empty();
 			}
-
-			$.each(data.feed.entry, function() {
-				if (this.gsx$role.$t == "Governor") {
-					governors.push(this);
+		
+			data.forEach(function(record) {
+				if (record.fields.type == "sen") {
+					us_senators.push(record);
 				}
-				if (this.gsx$role.$t == "U.S. Senator") {
-					us_seantors.push(this);
-				}
-				if (this.gsx$role.$t == "U.S. House Representative") {
-					us_representatives.push(this);
+				if (record.fields.type == "rep") {
+					us_representatives.push(record);
 				}
 			});
 			
-			$('#governor .posts').empty().json2html(governors,person,[{"replace":true}]);
-			$('#us_senators .posts').empty().json2html(us_seantors,person);
-			$('#us_representatives .posts').empty().json2html(us_representatives,person);
+			$('#us_senators .posts').empty().json2html(us_senators,airtable_person);
+			$('#us_representatives .posts').empty().json2html(us_representatives,airtable_person);
 		}
-
-		$window.on('load', async function() {
-			if (!window.location.hash && !localStorage.state) {
-				const response = await fetch('https://ipinfo.io/geo');
-				const json = await response.json();
-				if(json.country === 'US') {
-					state = window.location.hash = `#${json.region.toLowerCase().replace(/\s/, '-')}`
-					localStorage.setItem('state', state);
-				}
-			} else if (!window.location.hash && localStorage.state) {
-				state =	window.location.hash = localStorage.state;
+		
+		function render_position(position,person_id){
+			if( person_id = position.fields['US Legislators']['0']){
+				$('#person-'+ person_id +' .positions').empty().json2html(position,airtable_positions);
 			}
-			state_id = get_state_id(state);
-			get_data(state_id);
-
-			set_active_state_label();
-		});
-
-		$(window).on('hashchange', function() {
-			state = window.location.hash;
-			state_id = get_state_id(state);
-			get_data(state_id);
-			set_active_state_label();
-		});
+		}
 
 		function set_active_state_label() {
 			$('#states a').removeClass('active');
@@ -379,6 +358,34 @@
 				parseInt(Number(value)) == value && 
 				!isNaN(parseInt(value, 10));
 		}
+
+
+
+
+		$window.on('load', async function() {
+			if (!window.location.hash && !localStorage.state) {
+				const response = await fetch('https://ipinfo.io/geo');
+				const json = await response.json();
+				if(json.country === 'US') {
+					state = window.location.hash = `#${json.region.toLowerCase().replace(/\s/, '-')}`
+					localStorage.setItem('state', state);
+				}
+			} else if (!window.location.hash && localStorage.state) {
+				state =	window.location.hash = localStorage.state;
+			}
+			state_id = get_state_id(state);
+			get_people_by_state(state_id);
+			set_active_state_label();
+		});
+
+		$(window).on('hashchange', function() {
+			state = window.location.hash;
+			state_id = get_state_id(state);
+			get_people_by_state(state_id);
+			set_active_state_label();
+		});
+
+		
 
 		// Disable animations/transitions ...
 

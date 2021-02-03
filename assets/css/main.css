@@ -4124,10 +4124,8 @@
 }
 
 .source {
-	font-size: 11px;
-}
-.source a {
 	color: #7f888f;
+	font-size: 11px;
 }
 
 .nra.endorsed {
