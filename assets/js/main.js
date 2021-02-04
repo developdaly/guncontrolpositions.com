@@ -260,7 +260,7 @@
 					{'<>':'div','class':'seated-or-candidate seated','html':'Seated'},
 
 					// Position
-					{'<>':'div','class':'positions'},
+					{'<>':'div','class':'positions'}
 
 				]}
 			
@@ -268,10 +268,108 @@
 
 		var airtable_positions = 
 
-			{'<>':'ul','class':'positions','html':[
+			{'<>':'div','class':'mmmm','html':[
 
-				{'<>':'li','class':'position','text':'${fields.Quote}'}
+				{'<>':'ul','class':'controls','html':[
+					{'<>':'li','html':[
+						{'<>':'span', 'class':function(){
+							if(this.fields['Alert Local Law Enforcement of Failed Background Checks'] === 'Yes')
+								return('badge bg-success');
+							if(this.fields['Alert Local Law Enforcement of Failed Background Checks'] === 'No')
+								return('badge bg-danger');
+							if(this.fields['Alert Local Law Enforcement of Failed Background Checks'] === 'Other')
+								return('badge bg-warning text-dark');
+							if(this.fields['Alert Local Law Enforcement of Failed Background Checks'] === undefined)
+								return('badge bg-secondary');
+							},'text': function(){return(this.fields['Alert Local Law Enforcement of Failed Background Checks']);
+						}},
+						{'<>':'strong','html': '<a href="https://everytown.org/solutions/alert-law-enforcement-background-checks/" target="_blank">Alert Local Law Enforcement of Failed Background Checks</a>'}
+					]},
+					{'<>':'li','html':[
+						{'<>':'span', 'class':function(){
+							if(this.fields['Background Checks on All Gun Sales'] === 'Yes')
+								return('badge bg-success');
+							if(this.fields['Background Checks on All Gun Sales'] === 'No')
+								return('badge bg-danger');
+							if(this.fields['Background Checks on All Gun Sales'] === 'Other')
+								return('badge bg-warning text-dark');
+							if(this.fields['Background Checks on All Gun Sales'] === undefined)
+								return('badge bg-secondary');
+							},'text': function(){return(this.fields['Background Checks on All Gun Sales']);
+						}},
+						{'<>':'strong','html': '<a href="https://everytown.org/solutions/background-checks/" target="_blank">Background Checks on All Gun Sales</a>'}
+					]},
+					{'<>':'li','html':[
+						{'<>':'span', 'class':function(){
+							if(this.fields['Close the Charleston Loophole'] === 'Yes')
+								return('badge bg-success');
+							if(this.fields['Close the Charleston Loophole'] === 'No')
+								return('badge bg-danger');
+							if(this.fields['Close the Charleston Loophole'] === 'Other')
+								return('badge bg-warning text-dark');
+							if(this.fields['Close the Charleston Loophole'] === undefined)
+								return('badge bg-secondary');
+							},'text': function(){return(this.fields['Close the Charleston Loophole']);
+						}},
+						{'<>':'strong','html': '<a href="https://everytown.org/solutions/close-the-charleston-loophole/" target="_blank">Close the Charleston Loophole</a>'}
+					]},
+					{'<>':'li','html':[
+						{'<>':'span', 'class':function(){
+							if(this.fields['Prohibit Assault Weapons'] === 'Yes')
+								return('badge bg-success');
+							if(this.fields['Prohibit Assault Weapons'] === 'No')
+								return('badge bg-danger');
+							if(this.fields['Prohibit Assault Weapons'] === 'Other')
+								return('badge bg-warning text-dark');
+							if(this.fields['Prohibit Assault Weapons'] === undefined)
+								return('badge bg-secondary');
+							},'text': function(){return(this.fields['Prohibit Assault Weapons']);
+						}},
+						{'<>':'strong','html': '<a href="https://everytown.org/solutions/assault-weapon-ban/" target="_blank">Prohibit Assault Weapons</a>'}
+					]},
+					{'<>':'li','html':[
+						{'<>':'span', 'class':function(){
+							if(this.fields['Prohibit High-Capacity Magazines'] === 'Yes')
+								return('badge bg-success');
+							if(this.fields['Prohibit High-Capacity Magazines'] === 'No')
+								return('badge bg-danger');
+							if(this.fields['Prohibit High-Capacity Magazines'] === 'Other')
+								return('badge bg-warning text-dark');
+							if(this.fields['Prohibit High-Capacity Magazines'] === undefined)
+								return('badge bg-secondary');
+							},'text': function(){return(this.fields['Prohibit High-Capacity Magazines']);
+						}},
+						{'<>':'strong','html': '<a href="https://everytown.org/solutions/prohibit-high-capacity-magazines/" target="_blank">Prohibit High-Capacity Magazines</a>'}
+					]},
+					{'<>':'li','html':[
+						{'<>':'span', 'class':function(){
+							if(this.fields['Prohibit Open Carry'] === 'Yes')
+								return('badge bg-success');
+							if(this.fields['Prohibit Open Carry'] === 'No')
+								return('badge bg-danger');
+							if(this.fields['Prohibit Open Carry'] === 'Other')
+								return('badge bg-warning text-dark');
+							if(this.fields['Prohibit Open Carry'] === undefined)
+								return('badge bg-secondary');
+							},'text': function(){return(this.fields['Prohibit Open Carry']);
+						}},
+						{'<>':'strong','html': '<a href="https://everytown.org/solutions/prohibit-open-carry/" target="_blank">Prohibit Open Carry</a>'}
+					]}
+				]},
 
+				
+
+
+
+
+				
+
+				{'<>':'ul','class':'positions','html':[
+
+					{'<>':'li','class':'position','text':'${fields.Quote}'}
+
+				]}
+				
 			]};
 
 		function get_people_by_state(state_abbr){
