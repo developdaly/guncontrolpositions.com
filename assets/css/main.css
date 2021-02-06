@@ -4151,18 +4151,19 @@
     border-radius: .25rem;
 }
 
-.bg-success {
-    background-color: #198754!important;
+.bg-for {
+    background-color: #0094f6!important;
 }
-.bg-danger {
-    background-color: #dc3545!important;
+.bg-against {
+    background-color: #7e1987!important;
 }
-.bg-warning {
-    background-color: #ffc107!important;
+.bg-other {
+    background-color: #b6a546!important;
 }
-.bg-secondary {
-    background-color: #6c757d!important;
+.bg-unknown {
+    background-color: #6e6e6e!important;
 }
+
 .text-dark {
     color: #212529!important;
 }
