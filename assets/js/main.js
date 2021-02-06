@@ -433,6 +433,9 @@
 					us_representatives.push(record);
 				}
 			});
+			us_representatives.sort(function (a,b) {
+				return a.fields.district-b.fields.district
+			});
 			
 			$('#us_senators .posts').empty().json2html(us_senators,airtable_person);
 			$('#us_representatives .posts').empty().json2html(us_representatives,airtable_person);
