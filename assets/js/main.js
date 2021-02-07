@@ -259,118 +259,18 @@
 					// Seated or Candidate
 					{'<>':'div','class':'seated-or-candidate seated','html':'Seated'},
 
-					// Position
-					{'<>':'div','class':'positions'}
+					// Controls
+					{'<>':'ul','class':'controls'}
 
 				]}
 			
 			]};
 
-		var airtable_positions = 
-
-			{'<>':'div','class':'mmmm','html':[
-
-				{'<>':'ul','class':'controls','html':[
-					{'<>':'li','html':[
-						{'<>':'span', 'class':function(){
-							if(this.fields['Alert Local Law Enforcement of Failed Background Checks'] === 'Yes')
-								return('badge bg-for');
-							if(this.fields['Alert Local Law Enforcement of Failed Background Checks'] === 'No')
-								return('badge bg-against');
-							if(this.fields['Alert Local Law Enforcement of Failed Background Checks'] === 'Other')
-								return('badge bg-other text-dark');
-							if(this.fields['Alert Local Law Enforcement of Failed Background Checks'] === undefined)
-								return('badge bg-unknown');
-							},'text': function(){return(this.fields['Alert Local Law Enforcement of Failed Background Checks']);
-						}},
-						{'<>':'strong','html': '<a href="https://everytown.org/solutions/alert-law-enforcement-background-checks/" target="_blank">Alert Local Law Enforcement of Failed Background Checks</a>'}
-					]},
-					{'<>':'li','html':[
-						{'<>':'span', 'class':function(){
-							if(this.fields['Background Checks on All Gun Sales'] === 'Yes')
-								return('badge bg-for');
-							if(this.fields['Background Checks on All Gun Sales'] === 'No')
-								return('badge bg-against');
-							if(this.fields['Background Checks on All Gun Sales'] === 'Other')
-								return('badge bg-other text-dark');
-							if(this.fields['Background Checks on All Gun Sales'] === undefined)
-								return('badge bg-unknown');
-							},'text': function(){return(this.fields['Background Checks on All Gun Sales']);
-						}},
-						{'<>':'strong','html': '<a href="https://everytown.org/solutions/background-checks/" target="_blank">Background Checks on All Gun Sales</a>'}
-					]},
-					{'<>':'li','html':[
-						{'<>':'span', 'class':function(){
-							if(this.fields['Close the Charleston Loophole'] === 'Yes')
-								return('badge bg-for');
-							if(this.fields['Close the Charleston Loophole'] === 'No')
-								return('badge bg-against');
-							if(this.fields['Close the Charleston Loophole'] === 'Other')
-								return('badge bg-other text-dark');
-							if(this.fields['Close the Charleston Loophole'] === undefined)
-								return('badge bg-unknown');
-							},'text': function(){return(this.fields['Close the Charleston Loophole']);
-						}},
-						{'<>':'strong','html': '<a href="https://everytown.org/solutions/close-the-charleston-loophole/" target="_blank">Close the Charleston Loophole</a>'}
-					]},
-					{'<>':'li','html':[
-						{'<>':'span', 'class':function(){
-							if(this.fields['Prohibit Assault Weapons'] === 'Yes')
-								return('badge bg-for');
-							if(this.fields['Prohibit Assault Weapons'] === 'No')
-								return('badge bg-against');
-							if(this.fields['Prohibit Assault Weapons'] === 'Other')
-								return('badge bg-other text-dark');
-							if(this.fields['Prohibit Assault Weapons'] === undefined)
-								return('badge bg-unknown');
-							},'text': function(){return(this.fields['Prohibit Assault Weapons']);
-						}},
-						{'<>':'strong','html': '<a href="https://everytown.org/solutions/assault-weapon-ban/" target="_blank">Prohibit Assault Weapons</a>'}
-					]},
-					{'<>':'li','html':[
-						{'<>':'span', 'class':function(){
-							if(this.fields['Prohibit High-Capacity Magazines'] === 'Yes')
-								return('badge bg-for');
-							if(this.fields['Prohibit High-Capacity Magazines'] === 'No')
-								return('badge bg-against');
-							if(this.fields['Prohibit High-Capacity Magazines'] === 'Other')
-								return('badge bg-other text-dark');
-							if(this.fields['Prohibit High-Capacity Magazines'] === undefined)
-								return('badge bg-unknown');
-							},'text': function(){return(this.fields['Prohibit High-Capacity Magazines']);
-						}},
-						{'<>':'strong','html': '<a href="https://everytown.org/solutions/prohibit-high-capacity-magazines/" target="_blank">Prohibit High-Capacity Magazines</a>'}
-					]},
-					{'<>':'li','html':[
-						{'<>':'span', 'class':function(){
-							if(this.fields['Prohibit Open Carry'] === 'Yes')
-								return('badge bg-for');
-							if(this.fields['Prohibit Open Carry'] === 'No')
-								return('badge bg-against');
-							if(this.fields['Prohibit Open Carry'] === 'Other')
-								return('badge bg-other text-dark');
-							if(this.fields['Prohibit Open Carry'] === undefined)
-								return('badge bg-unknown');
-							},'text': function(){return(this.fields['Prohibit Open Carry']);
-						}},
-						{'<>':'strong','html': '<a href="https://everytown.org/solutions/prohibit-open-carry/" target="_blank">Prohibit Open Carry</a>'}
-					]}
-				]},
-
-				
-
-
-
-
-				
-
-				{'<>':'ul','class':'positions','html':[
-
-					{'<>':'li','class':'position','text':'${fields.Quote}'}
-
-				]}
-				
-			]};
+		var airtable_connections =
+		{'<>':'li','class':'control','html':[
+			{'<>':'span', 'class': 'badge bg-${fields.Stance}','text': '${fields.Stance}'},
+			{'<>':'strong', 'html': '<a href="#" target="_blank">${fields.control_name}</a>'},
+		]};
 
 		function get_people_by_state(state_abbr){
 			state_abbr = state_abbr.toUpperCase();
@@ -386,12 +286,12 @@
 				render_people(people);
 
 				people.forEach(function(person) {
-					positions = person.fields.positions;
-					if(positions) {
-						positions.forEach(function(position_id) {
-							base('Positions').find(position_id, function(err, position) {
+					connections = person.fields.connections;
+					if(connections) {
+						connections.forEach(function(connection_id) {
+							base('connections').find(connection_id, function(err, connection) {
 								if (err) { console.error(err); return; }
-								render_position(position,person.id);
+								render_connection(connection,person.id);
 							});
 						});
 					}
@@ -411,6 +311,15 @@
 			var Airtable = require('airtable');
 			var base = new Airtable({apiKey: 'keymZqTCLLLGgEcUW'}).base('appnnYim9SMBtDlnT');
 			base('Positions').find(position_id, function(err, record) {
+				if (err) { console.error(err); return; }
+				return record;
+			});
+		}
+
+		function get_connection_by_id(connection_id){
+			var Airtable = require('airtable');
+			var base = new Airtable({apiKey: 'keymZqTCLLLGgEcUW'}).base('appnnYim9SMBtDlnT');
+			base('connection').find(connection_id, function(err, record) {
 				if (err) { console.error(err); return; }
 				return record;
 			});
@@ -448,6 +357,12 @@
 			}
 		}
 
+		function render_connection(connection,person_id){
+			if( person_id = connection.fields.Person[0]){
+				$('#person-'+ person_id +' .controls').json2html(connection,airtable_connections);
+			}
+		}
+
 		function set_active_state_label() {
 			$('#states a').removeClass('active');
 			$('#states a[href="'+  window.location.hash +'"]').addClass('active');
@@ -460,9 +375,6 @@
 				parseInt(Number(value)) == value && 
 				!isNaN(parseInt(value, 10));
 		}
-
-
-
 
 		$window.on('load', async function() {
 			if (!window.location.hash && !localStorage.state) {
@@ -486,8 +398,6 @@
 			get_people_by_state(state_id);
 			set_active_state_label();
 		});
-
-		
 
 		// Disable animations/transitions ...
 
