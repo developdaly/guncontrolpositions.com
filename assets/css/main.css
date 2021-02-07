@@ -2072,7 +2072,7 @@
 	body, input, select, textarea {
 		color: #7f888f;
 		font-family: "Open Sans", sans-serif;
-		font-size: 13pt;
+		font-size: 10pt;
 		font-weight: 400;
 		line-height: 1.65;
 	}
@@ -2177,7 +2177,7 @@
 	@media screen and (max-width: 1680px) {
 
 		h1 {
-			font-size: 3.5em;
+			font-size: 1.75em;
 		}
 
 	}
@@ -4151,18 +4151,22 @@
     border-radius: .25rem;
 }
 
-.bg-for {
-    background-color: #0094f6!important;
-}
-.bg-against {
-    background-color: #7e1987!important;
-}
-.bg-other {
-    background-color: #b6a546!important;
-}
-.bg-unknown {
+.badge {
     background-color: #6e6e6e!important;
 }
+.bg-for,
+.bg-For {
+    background-color: #0094f6!important;
+}
+.bg-against,
+.bg-Against {
+    background-color: #7e1987!important;
+}
+.bg-other,
+.bg-Other {
+    background-color: #b6a546!important;
+}
+
 
 .text-dark {
     color: #212529!important;
@@ -4172,5 +4176,5 @@
 }
 .controls .badge {
 	margin-right: 5px;
-	width: 40px;
+	width: 50px;
 }
