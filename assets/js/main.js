@@ -270,6 +270,7 @@
 		{'<>':'li','class':'control','html':[
 			{'<>':'span', 'class': 'badge bg-${fields.Stance}','text': '${fields.Stance}'},
 			{'<>':'strong', 'html': '<a href="#" target="_blank">${fields.control_name}</a>'},
+			{'<>':'small', 'class':'source', 'html': function(){if( this.fields.source !== undefined ) { return ' <a href="'+ this.fields.source +'" target="_blank">Source</a>'; }}}
 		]};
 
 		function get_people_by_state(state_abbr){
@@ -291,6 +292,7 @@
 						connections.forEach(function(connection_id) {
 							base('connections').find(connection_id, function(err, connection) {
 								if (err) { console.error(err); return; }
+								console.log(connection);
 								render_connection(connection,person.id);
 							});
 						});
