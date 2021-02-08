@@ -269,7 +269,7 @@
 		var airtable_connections =
 		{'<>':'li','class':'control','html':[
 			{'<>':'span', 'class': 'badge bg-${fields.Stance}','text': '${fields.Stance}'},
-			{'<>':'strong', 'html': '<a href="#" target="_blank">${fields.control_name}</a>'},
+			{'<>':'strong', 'text': '${fields.control_name}'},
 			{'<>':'small', 'class':'source', 'html': function(){if( this.fields.source !== undefined ) { return ' <a href="'+ this.fields.source +'" target="_blank">Source</a>'; }}}
 		]};
 
