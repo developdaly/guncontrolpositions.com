@@ -4173,8 +4173,20 @@
 }
 .controls {
 	list-style: none;
+	padding: 0;
+}
+.controls li {
+	padding: 0;
 }
 .controls .badge {
 	margin-right: 5px;
-	width: 50px;
+	width: 55px;
+}
+
+.posts article.race-2022 {
+	border-color: #f56a6a;
+}
+.posts article.race-2022 .candidate {
+	color: #f56a6a;
+	font-weight: bold;
 }

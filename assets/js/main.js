@@ -282,15 +282,26 @@
 
 				render_people(people);
 
+				// Loop through people
 				people.forEach(function(person) {
-					connections = person.fields.connections;
-					if(connections) {
-						connections.forEach(function(connection_id) {
+
+					// If the person is in any races, get the info
+					if(person.fields.races) {
+						base('races').find(person.fields.races[0], function(err, race) {
+							if (err) { console.error(err); return; }
+							if(race.id === person.fields.races[0]) {
+								render_race(race,person);
+							}
+						});
+					}
+
+					if(person.fields.connections) {
+						person.fields.connections.forEach(function(connection_id) {
 							base('connections').find(connection_id, function(err, connection) {
 								if (err) { console.error(err); return; }
-								console.log(connection);
 								render_connection(connection,person.id);
 							});
+							
 						});
 					}
 				});
@@ -358,6 +369,12 @@
 		function render_connection(connection,person_id){
 			if( person_id = connection.fields.Person[0]){
 				$('#person-'+ person_id +' .controls').json2html(connection,airtable_connections);
+			}
+		}
+
+		function render_race(race,person){
+			if(person.fields.races[0] === race.id ) {
+				$('#person-'+ person.id).addClass('race-2022');
 			}
 		}
 
