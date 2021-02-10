@@ -246,23 +246,19 @@
 
 			{'<>':'article','id':'person-${id}','html':[
 			
-				{'<>':'div','class':'seated','html':[
-
 					// Name
 					{'<>':'h3','class':'name','text':'${fields.full_name} - ','html':[
 						{'<>':'abbr','class':'party','title':'${fields.party}','text':'${fields.party}'}
 					]},
 
 					// District
-					{'<>':'h4','class':function(){if( ( this.fields.district  !== "" ) || ( this.fields.district === "Unknown" ) ) { return 'district' } else { return 'hide' }},'html':function(){if( this.fields.district !== undefined ) { return 'District '+ this.fields.district;}} ,},
+					{'<>':'h4','class':function(){if( ( this.fields.district  !== undefined ) || ( this.fields.district === "Unknown" ) ) { return 'district'; } else { return 'hide'; }},'html':function(){if( this.fields.district !== undefined ) { return 'District '+ this.fields.district;}} ,},
 
 					// Seated or Candidate
-					{'<>':'div','class':'seated-or-candidate seated','html':'Seated'},
+					{'<>':'div','class':function(){if(this.fields.senate_class !== undefined) {return 'seated-or-candidate seated'; } else { return 'seated-or-candidate candidate'; }},'text':function(){if(this.fields.senate_class !== undefined) {return 'Seated'; } else { return 'Candidate'; }}},
 
 					// Controls
 					{'<>':'ul','class':'controls'}
-
-				]}
 			
 			]};
 
