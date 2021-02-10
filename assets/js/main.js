@@ -146,7 +146,7 @@
 					state_id = 'me';
 					break;
 				case '#maryland':
-					state_id = 'my';
+					state_id = 'md';
 					break;
 				case '#massachusetts':
 					state_id = 'ma';
